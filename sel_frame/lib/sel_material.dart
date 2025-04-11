@@ -32,9 +32,8 @@ class _SelMaterialState extends State<SelMaterial> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Stack(
+    return MaterialApp(
+      home: Stack(
         children: selModel.selPageList,
       ),
     );

@@ -1,45 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:sel_frame/sel_controller.dart';
 
-class SelScaffold extends StatefulWidget {
-  SelScaffold({
+final GlobalKey<_SelScaffoldAState> selScaffoldA = GlobalKey<_SelScaffoldAState>();
+
+class SelScaffoldA extends StatefulWidget {
+  const SelScaffoldA({
     super.key,
     this.selAppBar,
     this.selBody,
     this.selBottomBar,
   });
 
-  final Widget? selAppBar;
+  final PreferredSizeWidget? selAppBar;
   final Widget? selBody;
   final Widget? selBottomBar;
 
   @override
-  State<SelScaffold> createState() => _SelScaffoldState();
+  State<SelScaffoldA> createState() => _SelScaffoldAState();
 }
 
-class _SelScaffoldState extends State<SelScaffold> {
+class _SelScaffoldAState extends State<SelScaffoldA> {
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        widget.selAppBar ?? SelAppBar(),
-        Expanded(child: SizedBox(
-          child: widget.selBody,
-        )),
-        widget.selBottomBar ?? const SizedBox(),
-      ],
-    );
+  void initState() {
+    super.initState();
+    selInitAddPageList(Scaffold(
+      appBar: widget.selAppBar,
+      body: widget.selBody,
+      bottomNavigationBar: widget.selBottomBar,
+    ));
   }
-}
 
-class SelAppBar extends StatelessWidget {
-  const SelAppBar({super.key});
+  void selState() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      width: MediaQuery.of(context).size.width,
-      color: Colors.brown,
-    );
+    return const Placeholder();
   }
 }
