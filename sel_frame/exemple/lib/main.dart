@@ -1,20 +1,23 @@
+import 'package:exemple/ui/drawer/layered_drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:sel_frame/sel_controller.dart';
-import 'package:sel_frame/sel_material.dart';
-import 'package:sel_frame/sel_navigator.dart';
-import 'package:sel_frame/sel_scaffold.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  late double asd;
 
   @override
   Widget build(BuildContext context) {
+    asd = MediaQuery.of(context).size.height;
+    print(asd.toString());
     return MaterialApp(
-
+      home: Scaffold(
+        body: EXLayeredDrawer(),
+      ),
     );
   }
 }
